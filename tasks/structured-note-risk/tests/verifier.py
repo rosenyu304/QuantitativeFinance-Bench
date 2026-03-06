@@ -250,13 +250,8 @@ def check_intermediates(
             agent_value = entry.get("value")
         elif isinstance(entry, (int, float)):
             agent_value = entry
-        elif isinstance(entry, (int, float)):
-            agent_value = entry  # flat numeric value
         else:
             continue  # skip entries that are neither dict nor numeric
-        elif isinstance(entry, (int, float)):
-            agent_value = entry
-        else:
             continue  # skip entries that are neither dict nor numeric
 
         if term_name in checkpoints_ref:
