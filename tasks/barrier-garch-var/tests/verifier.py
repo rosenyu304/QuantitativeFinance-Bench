@@ -239,7 +239,6 @@ def check_intermediates(
                 "logical_closeness": {"dangling": 0},
             },
         }
-    intermediates = intermediates
     checkpoint_results = []
     matched_refs = set()
 
