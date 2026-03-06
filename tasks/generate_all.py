@@ -1352,7 +1352,15 @@ def solve_sentiment(prices_data=None, dates=None, tickers=None,
     log_alpha_daily = float(log_intercept)
     log_beta = float(log_slope)
     log_r_squared = float(log_r_value ** 2)
-    log_alpha_tstat = log_alpha_daily / log_stderr if log_stderr > 0 else 0.0
+    log_result = stats.linregress(log_mkt_aligned, log_port_returns)
+    log_slope, log_intercept, log_r_value, _, log_stderr = (
+        log_result.slope, log_result.intercept, log_result.rvalue,
+        log_result.pvalue, log_result.stderr,
+    )
+    log_alpha_daily = float(log_intercept)
+    log_beta = float(log_slope)
+    log_r_squared = float(log_r_value ** 2)
+    log_alpha_tstat = log_alpha_daily / log_result.intercept_stderr if log_result.intercept_stderr > 0 else 0.0
     log_alpha_ann = log_alpha_daily * 252
 
     print(f"\n  Log returns alt:")
