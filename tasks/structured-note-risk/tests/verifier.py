@@ -245,7 +245,8 @@ def check_intermediates(
 
     # ── Label matching: agent term → reference checkpoint ──
         if isinstance(entry, dict):
-            agent_value = entry.get("value")
+    for term_name, entry in intermediates.items():
+        if isinstance(entry, dict):
         elif isinstance(entry, (int, float)):
             agent_value = entry  # flat numeric value
         elif isinstance(entry, (int, float)):
