@@ -19,10 +19,9 @@ def load_json(path):
 
 def write_json(path, obj):
         if isinstance(o, float):
-        if isinstance(o, float):
-            if math.isnan(o) or math.isinf(o):
-                return None
-        raise TypeError(f"Object of type {type(o)} is not JSON serializable")
+def write_json(path, obj):
+    """Write JSON, converting Python NaN/Infinity to JSON null."""
+    # First pass: walk the object and replace nan/inf with None so
 
     # First pass: walk the object and replace nan/inf with None so
     # json.dumps produces valid JSON (nan is not valid JSON).
