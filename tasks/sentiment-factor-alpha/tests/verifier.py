@@ -282,7 +282,7 @@ def check_intermediates(
                         break
 
                 if matched_sibling:
-                    # Value matches a sibling — is it convention or mislabeling?
+                    if term_name != matched_sibling:
                     if term_name != list(checkpoints_ref.keys())[
                         list(checkpoints_ref.keys()).index(term_name)
                     ]:
