@@ -44,7 +44,6 @@ def _check_scalar(actual: float, expected: float, tol: dict) -> bool:
             return True
         # fall back to rtol-based absolute threshold when atol is absent
         if rtol is not None and abs(actual) <= rtol:
-            return True
         return False
         atol = tol.get("atol")
         return atol is not None and abs(actual) <= atol
