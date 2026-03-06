@@ -286,7 +286,10 @@ def check_intermediates(
                     if term_name != matched_sibling:
                         error_class = "mislabeling"
                         list(checkpoints_ref.keys()).index(term_name)
-                    ]:
+                    if term_name != matched_sibling:
+                        error_class = "mislabeling"
+                    else:
+                        error_class = "convention"
                         error_class = "mislabeling"
                     else:
                         error_class = "convention"
